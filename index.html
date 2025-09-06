@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>Insight Weaver — Local</title>
+
+    <!-- Optional: link to a global stylesheet in public/ -->
+    <link rel="stylesheet" href="%PUBLIC_URL%/styles.css" />
+    <!-- If you use icons / fonts, add them here -->
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+
+    <!-- React will mount into this element -->
+    <div id="root"></div>
+
+    <!--
+      When you run your bundler/build (create-react-app / vite / whatever),
+      it will produce JS/CSS files. Replace the example script below with the
+      actual generated file(s) or let the build process inject them automatically.
+
+      Example (these filenames are placeholders — replace with your real build files):
+      <link href="/static/css/main.<hash>.css" rel="stylesheet">
+      <script src="/static/js/runtime~main.<hash>.js"></script>
+      <script src="/static/js/main.<hash>.js"></script>
+    -->
+
+    <!-- Example fallback loader: try to load main.js from /static/js/main.js -->
+    <script>
+      (function () {
+        // Try to load a typical create-react-app/Vite build file
+        var s = document.createElement('script');
+        s.src = '/static/js/main.js';
+        s.onload = function () {
+          console.log('Loaded /static/js/main.js (if available).');
+        };
+        s.onerror = function () {
+          console.warn('No /static/js/main.js found — replace this index.html with the build-generated one or point to the correct bundle.');
+        };
+        document.body.appendChild(s);
+      })();
+    </script>
+  </body>
+</html>
