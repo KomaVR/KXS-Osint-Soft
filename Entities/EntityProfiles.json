@@ -1,0 +1,106 @@
+{
+  "name": "EntityProfile",
+  "type": "object",
+  "properties": {
+    "identifier": {
+      "type": "string",
+      "description": "Primary identifier (email, username, domain, IP, etc.)"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "email",
+        "username",
+        "domain",
+        "ip",
+        "phone",
+        "social_handle",
+        "wallet_address"
+      ],
+      "description": "Type of identifier"
+    },
+    "related_entities": {
+      "type": "array",
+      "description": "Connected identifiers found through correlation",
+      "items": {
+        "type": "object",
+        "properties": {
+          "identifier": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "source": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "breach_data": {
+      "type": "object",
+      "description": "Breach intelligence if any",
+      "properties": {
+        "breaches": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "last_checked": {
+          "type": "string"
+        }
+      }
+    },
+    "social_profiles": {
+      "type": "array",
+      "description": "Social media profiles found",
+      "items": {
+        "type": "object",
+        "properties": {
+          "platform": {
+            "type": "string"
+          },
+          "profile_url": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "network_intel": {
+      "type": "object",
+      "description": "Network and infrastructure intelligence",
+      "properties": {
+        "whois_data": {
+          "type": "object"
+        },
+        "dns_records": {
+          "type": "array"
+        },
+        "ssl_info": {
+          "type": "object"
+        },
+        "open_ports": {
+          "type": "array"
+        }
+      }
+    },
+    "investigation_id": {
+      "type": "string",
+      "description": "Associated investigation ID"
+    }
+  },
+  "required": [
+    "identifier",
+    "type"
+  ]
+}
